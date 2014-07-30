@@ -1,0 +1,11 @@
+.nav li.active {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #42aaff;
+    text-decoration: none;
+}
+
+.bs-docs-nav .navbar-toggle .icon-bar {
+    background-color: #42aaff;
+}
