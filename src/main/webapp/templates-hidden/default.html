@@ -16,37 +16,18 @@
   </head>
   <body>
     <div class="container">
-        <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
-            <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="../" class="navbar-brand">app</a>
+        <lift:embed what="header"></lift:embed>
 
-                <img alt="" id="ajax-loader" style="display:none; margin-bottom: 0px; margin-left: 5px" src="/images/ajax-loader.gif" />
-            </div>
+        <div class="column span-6 colborder sidebar">
+            <div class="lift:Msgs?showAll=true"></div>
+        </div>
 
-            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                <span class="lift:Menu.builder?ul:class=nav%20navbar-nav&li_item:class=active"></span>
-            </nav>
-        </header>
+        <div class="column span-17 last">
+            <div id="content">The main content will get bound here</div>
+        </div>
 
-
-      <div class="column span-6 colborder sidebar">
-        <div class="lift:Msgs?showAll=true"></div>
-      </div>
-
-      <div class="column span-17 last">
-        <div id="content">The main content will get bound here</div>
-      </div>
-
-      <hr />
-      <div class="column span-23 last" style="text-align: center">
-        <h4 class="alt"></h4>
-      </div>
+        <div class="column span-23 last" style="text-align: center">
+        </div>
     </div>
   </body>
 </html>

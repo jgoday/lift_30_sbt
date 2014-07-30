@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <title>Home</title>
+</head>
+<body class="lift:content_id=main">
+<div id="main" class="lift:surround?with=default;at=content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Sample js function</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <pre>
+private def jsFunction = (_: String) =>
+  JsCmds.SetHtml("time", Text((new java.util.Date).toString))
+
+def updateTime = "#btn [onClick]" #> SHtml.onEvent(jsFunction)
+                            </pre>
+                        </div>
+                        <div class="col-md-6">
+                            <div data-lift="SampleJs.updateTime">
+                                <button id="btn" class="btn">Click to update time</button>
+
+                                <p id="time"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <pre>
+private def renderTemplate(templateName: String) = (_: String) =>
+  JsCmds.Replace("to-replace", TemplateUtils.template(templateName))
+
+def loadTemplate = {
+    import JsUtils._
+
+    val templateName = S.attr("template").openOr("not-found")
+
+    "#btn2".onClick(renderTemplate((templateName)))
+}
+                            </pre>
+                        </div>
+                        <div class="col-md-6">
+                            <div data-lift="SampleJs.loadTemplate?template=templates-hidden/samples/_selectors">
+                                <button id="btn2" class="btn">Click to render selectors template</button>
+                            </div>
+
+                            <div id="to-replace"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
