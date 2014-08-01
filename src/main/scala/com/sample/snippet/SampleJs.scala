@@ -14,16 +14,14 @@ import util.{TemplateUtils, JsUtils}
 
 class SampleJs {
 
-  private def jsFunction =
-    (_: String) =>
-      JsCmds.SetHtml("time", Text((new java.util.Date).toString))
+  private def jsFunction = () =>
+    JsCmds.SetHtml("time", Text((new java.util.Date).toString))
 
-  private def renderTemplate(templateName: String) =
-    (_: String) =>
-      JsCmds.Replace("to-replace",
-        TemplateUtils.template(templateName))
+  private def renderTemplate(templateName: String) = () =>
+    JsCmds.Replace("to-replace",
+      TemplateUtils.template(templateName))
 
-  def updateTime = "#btn [onClick]" #> SHtml.onEvent(jsFunction)
+  def updateTime = "#btn [onClick]" #> SHtml.ajaxInvoke(jsFunction)
 
   def loadTemplate = {
     import JsUtils._

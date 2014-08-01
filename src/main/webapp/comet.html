@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <title>Home</title>
+</head>
+<body class="lift:content_id=main">
+<div id="main" class="lift:surround?with=default;at=content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Sample comet</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <pre>
+
+class SampleComet {
+    private def sampleComet =
+      S.session.flatMap(_.findComet("SampleComet", Full("sampleComet")))
+
+    private def callComet = () => {
+      SampleActor ! DoStuff(sampleComet)
+
+      JsUtils.append("to-replace", Text("ajax call finished"))
+    }
+
+    def render = "#btn [onclick]" #> SHtml.ajaxInvoke(callComet)
+}
+
+import net.liftweb.actor._
+
+case class DoStuff(cometRef: Box[LiftCometActor])
+
+object SampleActor extends LiftActor {
+    protected def messageHandler = {
+        case DoStuff(cometRef) =>
+            cometRef.foreach { ref =>
+                for { i <- 0 to 10 } {
+                    Thread.sleep(1000)
+                    ref ! comet.Progress(i * 10)
+                }
+
+                ref ! comet.UpdateClient(
+                    "to-replace",
+                    Text("Work done !"))
+            }
+    }
+}
+                            </pre>
+                        </div>
+                        <div class="col-md-6">
+                            <div data-lift="SampleComet">
+                                <button class="btn btn-primary" id="btn">
+                                    Call asynchronous comet
+                                </button>
+
+                            </div>
+                            <lift:comet type="SampleComet" name="sampleComet">
+                                <div id="result"></div>
+                            </lift:comet>
+
+                            <div id="progress"></div>
+                            <div id="to-replace"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
