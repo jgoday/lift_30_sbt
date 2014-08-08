@@ -4,7 +4,7 @@ package util
 import scala.xml.{NodeSeq}
 
 object BootstrapUtils {
-  def textMutted(msg: String): NodeSeq = <p class="text-mutted">{msg}</p>
+  def textMutted(msg: String): NodeSeq = <p class="text-muted">{msg}</p>
   def textPrimary(msg: String): NodeSeq = <p class="text-primary">{msg}</p>
   def textSuccess(msg: String): NodeSeq = <p class="text-success">{msg}</p>
   def textInfo(msg: String): NodeSeq = <p class="text-info">{msg}</p>

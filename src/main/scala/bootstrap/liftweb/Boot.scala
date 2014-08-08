@@ -48,7 +48,8 @@ class Boot {
       Menu.i("Home") / "index",
       Menu.i("Css selectors") / "selectors",
       Menu.i("Js functions") / "js-functions",
-      Menu.i("Comet") / "comet")
+      Menu.i("Comet") / "comet",
+      Menu.i("Futures") / "futures")
 //      Menu.i("Home") / "index" >> User.AddUserMenusAfter, // the simple way to declare a menu
 
       // more complex because this menu allows anything in the

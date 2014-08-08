@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <title>Home</title>
+</head>
+<body class="lift:content_id=main">
+<div id="main" class="lift:surround?with=default;at=content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Sample futures</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <pre>
+import util.FutureUtils._
+
+class SampleFuture {
+
+  def render = {
+    val future: LAFuture[NodeSeq] = LAFuture(() => {
+      Thread.sleep(5000)
+      Text("future finished after 5000 ms")
+    })
+
+    "#future-result *" #> future &
+    "#non-future *" #> "Non future value"
+  }
+}
+
+                            </pre>
+                        </div>
+                        <div class="col-md-6">
+                            <div data-lift="SampleFuture">
+                                <p id="future-result"></p>
+                                <p id="non-future"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

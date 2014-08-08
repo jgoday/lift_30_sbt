@@ -1,7 +1,7 @@
 package com.sample
 package util
 
-import scala.xml.NodeSeq
+import scala.xml.{Node, NodeSeq}
 
 import net.liftweb.util._
 import net.liftweb.common._
@@ -17,12 +17,15 @@ object JsUtils {
       (str + " [onclick]") #> SHtml.ajaxInvoke(handler)
   }
 
-  def replace(id: String, content: NodeSeq) =
+  def replace(id: String, content: NodeSeq): JsCmd =
     JsCmds.Replace(id, content)
 
-  def setHtml(id: String, content: NodeSeq) =
+  def setHtml(id: String, content: NodeSeq): JsCmd =
     JsCmds.SetHtml(id, content)
 
-  def append(id: String, content: NodeSeq) =
+  def append(id: String, content: NodeSeq): JsCmd =
     jquery.JqJsCmds.AppendHtml(id, content)
+
+  def onLoad(cmd: JsCmd): Node =
+    JsCmds.Script(JsCmds.OnLoad(cmd))
 }
