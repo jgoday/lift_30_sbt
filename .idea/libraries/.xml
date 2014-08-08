@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="">
+    <CLASSES>
+      <root url="jar://C:/lib/scala-library.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://C:/doc/tools" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://C:/lib/scala-library-src.jar!/" />
+    </SOURCES>
+  </library>
+</component>

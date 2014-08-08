@@ -8,8 +8,8 @@ object BootstrapUtils {
   def textPrimary(msg: String): NodeSeq = <p class="text-primary">{msg}</p>
   def textSuccess(msg: String): NodeSeq = <p class="text-success">{msg}</p>
   def textInfo(msg: String): NodeSeq = <p class="text-info">{msg}</p>
-  def textWarning(msg: String): NodeSeq = <p class="ẗext-warning">{msg}</p>
-  def textDanger(msg: String): NodeSeq = <p class="ẗext-danger">{msg}</p>
+  def textWarning(msg: String): NodeSeq = <p class="text-warning">{msg}</p>
+  def textDanger(msg: String): NodeSeq = <p class="text-danger">{msg}</p>
 
   def bgMutted(msg: String): NodeSeq = <p class="bg-mutted">{msg}</p>
   def bgPrimary(msg: String): NodeSeq = <p class="bg-primary">{msg}</p>
